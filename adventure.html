@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script
+			  src="https://code.jquery.com/jquery-2.2.4.js"
+			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+			  crossorigin="anonymous"></script>
+    
+<!-- Facebook API -->
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '435038103298283',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    
+</script>
+<script src="//platform.twitter.com/widgets.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-786598-27', 'zsl.org');
+  ga('send', 'pageview');
+
+</script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no" content="width=device-width"/>
+<link rel="stylesheet" href="style.css"/>
+	<title>Tiger Territory - Adventure Mode</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="hand.js"></script>
+    <script src="joystick.js"></script>
+    <script>
+	
+	var game_mode = "adventure";
+	var multiplayer = false;
+	
+    </script>
+    
+</head>
+<div id="blackout"></div>
+<body oncontextmenu="return false">
+<div id="debug"></div>
+	<canvas id="canvas"></canvas>
+    <div id="titlebox"></div>
+    <div id="optionbox"></div>
+    <canvas id="joystick"></canvas>
+    <div id="helppanel">
+<img src="media/panel/hudpanel_hide.png" />
+<div class="fb-like" data-href="https://www.facebook.com/zsllondonzoo" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+<a href="https://twitter.com/zsllondonzoo" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-lang="en">Follow</a>
+
+<div id="helpbuttons">
+<span id="help">Help</span>
+<span id="controls">Controls</span>
+<span id="buy"><a href="http://apps.zsl.org/topdowntiger/arcade.html">Arcade mode</a></span>    
+</div>
+</div>
+	<img id="trophy" src="media/achievements/trophy.png"/>
+	<div id="playbutton"><a href="#">Play</a></div>
+
+    
+	<div id="panel">
+
+<h1>Experience life as a Sumatran tiger - one of the most magnificent and endangered predators on the planet</h1><div class="divide"></div><div id="achievements">Unlock all 12 achievements</div><div class="divide"></div><div id="keys"></div><div id="icon_energy"></div><div class="task"><div class="icon-wrapper"><img src="media/panel/instructions_visible_hide.png"/></div><p>Prowl under trees to hide from sight and stalk prey</p></div><div class="task"><div class="icon-wrapper"><img src="media/panel/instructions_scratch.png"/></div><p>Sniff scratches and animal droppings to find prey.</p>
+        
+    </div>
+</div>
+</body>
+<script>
+    
+var achievements = [
+
+{name: "Swimming", icon: "swimming.png", header: "Unlike other cats, tigers are strong swimmers and like to keep cool in the water.", tip:"Try exploring near water", unlocked: false},
+
+{name: "Boar", icon: "boar.png", header: "You ate a wild boar! Wild boars are scavengers and eat most things, from berries to small reptiles.", tip:"Look out for boar", unlocked:false},
+
+{name: "Deer", icon: "deer.png", header: "You ate a speedy sambar deer! Sambar deer are good swimmers & can often be found near water.", tip:"Try to catch a deer.", unlocked:false},
+
+{name: "Tapir", icon: "tapir.png", header: "You ate a tapir! Tapirs have changed little over 35 million years. They use their short flexible trunk as a snorkel when swimming.", tip:"Look out for a tapir", unlocked:false},
+
+{name: "Sleeping", icon: "sleeping.png", header: "Tigers sleep up to 18 hours a day. Tigers usually hunt at night and sleep most of the day.", tip:"Perhaps you should have a rest", unlocked:false},
+
+{name: "Prowling", icon: "prowling.png", header: "Tigers have great camouflage that keeps them hidden when prowling for prey", tip:"Prowl under a tree to hide from animals", unlocked:false},
+
+{name: "Sniffing", icon: "sniffing.png", header: "Where's the nearest prey? Your excellent sense of smell will help", tip:"Look out for scratches and animal droppings", unlocked:false},
+
+{name: "Snare", icon: "snare.png", header: "Watch out! Poachers lay snares to capture tigers to sell their parts in the illegal tiger trade.", tip:"Don't get too close!", unlocked:false},
+
+{name: "Camera trap", icon:"camera.png", header: "You've been snapped by a camera trap! ZSL conservationists use hidden cameras to monitor tiger populations and their behaviour.", tip:"You'd look great on camera", unlocked:false},
+
+{name: "Another tiger", icon:"anothertiger.png", header: "You've met another tiger! There are less than 300 Sumatran tigers left in the wild.", tip:"Are you the only tiger left?", unlocked:false},
+
+{name: "Fence", icon:"fence.png", header: "ZSL is helping Indonesian people replace home-made lethal electric fencing with tiger-friendly solar powered fences", tip:"The most shocking of all the achievements", unlocked:false},
+
+{name: "Palm Oil", icon:"palmoil.png", header: "Palm oil is found in many foods but unsustainable plantations are destroying huge areas of the Sumatran tiger's natural habitat", tip:"Found in lots of human products.", unlocked:false}
+
+	]
+	
+	var unlocked = 0;
+    
+</script>
+	<script type="text/javascript" src="game.min.js"></script>
+</html>

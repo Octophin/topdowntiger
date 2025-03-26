@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="user-scalable=no" content="width=device-width"/>
+
+<link rel="stylesheet" href="style.css"/>
+	<title>Tiger Territory - Arcade Mode</title>
+
+		<script type="text/javascript" src="lib/impact/impact.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
+    <script src="hand.js"></script>
+    <script src="joystick.js"></script>
+    <script>
+	
+	var game_mode = "arcade";
+	var multiplayer = false;
+	
+    </script>
+
+</head>
+<body oncontextmenu="return false">
+<div id="debug"></div>
+	<canvas id="canvas"></canvas>
+    <div id="titlebox"></div>
+    <div id="optionbox"></div>
+    <canvas id="joystick"></canvas>
+
+	<div id="playbutton"><a href="#">Play</a></div>
+ 
+
+	<div id="panel">
+
+		<h1>Race against time to catch as many animals as you can in sixty seconds!</h1>
+    
+   			    <div class="divide"></div>
+    
+    	<div id="achievements">Eat boar, deer & tapir to boost energy</div>
+        
+           		<div class="divide"></div>
+    
+    	<div id="keys"></div>
+    
+    	<div id="icon_energy"></div>
+    <div class="task">
+    <div class="icon-wrapper">
+    <img src="media/panel/instructions_visible_hide.png"/>
+    </div>
+    <p>Prowl under trees to hide from sight and stalk prey</p>
+    </div>
+    <div class="task">
+    <div class="icon-wrapper">
+    <img src="media/panel/instructions_scratch.png"/>
+    </div>
+    <p>Sniff scratches and animal droppings to find prey.</p>
+    </div>
+    
+	<script type="text/javascript" src="lib/game/main.js"></script>
+        <script src="http://134.213.29.44/socket.io/socket.io.js"></script>
+        
+</body>
+</html>

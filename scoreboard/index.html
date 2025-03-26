@@ -1,0 +1,84 @@
+<!doctype HTML>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<style>
+@font-face {
+    font-family: 'alegreya_sansextrabold_italic';
+    src: url('../fonts/alegreyasans-extrabolditalic-webfont.eot');
+    src: url('../fonts/alegreyasans-extrabolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/alegreyasans-extrabolditalic-webfont.woff') format('woff'),
+         url('../fonts/alegreyasans-extrabolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/alegreyasans-extrabolditalic-webfont.svg#alegreya_sansextrabold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+</style>
+<style>
+body { color:white; font-family:'alegreya_sansextrabold_italic';}
+h1 { font-size:42px; margin: 15px 0 10px; text-shadow: 1px 1px 1px #000000; line-height:38px; }
+h2 { font-size:22px; text-shadow:1px 1px 1px #000000; border-bottom:2px dotted #FFFFFF }
+table { width:215px; }
+td {border-style:solid; border-width:2px; overflow:hidden; background-color:rgba(255,140,0,0.7)}
+body { background:#000000 url("../media/splash/tree.jpg") top no-repeat; }
+.scoreboard_wrapper { background:url("panel_repeat.png") repeat-y; padding: 0 45px; width: 221px; margin-left:auto; margin-right:auto; margin-top:35px; }
+#scoreboard_header { background:url("scoreboard_top_panel.png") no-repeat; height:25px; margin-left:-46px; width:328px; }
+#scoreboard_footer { background:url("scoreboard_bottom_panel.png") no-repeat; height:25px; margin-left:-46px; width:320px; margin-top: 23px; }
+td.name {width:250px;}
+</style>
+</head>
+<body>
+
+<div class="scoreboard_wrapper">
+<div id="scoreboard_header"></div>
+
+<h1>Tiger Territory scoreboard</h1>
+
+<script>
+
+var mobilescores = "data.php?scoreboard=mobile";
+var desktopscores = "data.php?scoreboard=desktop";
+
+
+jQuery.getJSON(desktopscores, function( data ) {
+var i;
+
+for(i=0; i<100; i+=1){
+if(!data[i-1] || data[i].name !== data[i-1].name && data[i].score !== data[i-1].score){
+if($("#desktop tr").length <= 50){
+$("#desktop").append("<tr><td>" + $("#desktop tr").length + "</td><td>" + data[i].name + "</td><td>" + data[i].score + "</td></tr>");  
+}
+}
+}
+});
+
+jQuery.getJSON(mobilescores, function( data ) {
+var i;
+
+for(i=0; i<100; i+=1){
+
+if(!data[i-1] || data[i].name !== data[i-1].name && data[i].score !== data[i-1].score){
+if($("#mobile tr").length <= 50){
+$("#mobile").append("<tr><td>" + $("#mobile tr").length + "</td><td class='name'>" + data[i].name + "</td><td>" + data[i].score + "</td></tr>");  
+}
+}
+}
+});
+    
+</script>
+<h2>Desktop scores</h2>
+<table id="desktop">
+<tr><th>Ranking</th><th>Name</th><th>Score</th></tr>
+</table>
+<h2>Mobile scores</h2>
+<table id="mobile">
+<tr><th>Ranking</th><th>Name</th><th>Score</th></tr>
+</table>
+
+<div id="scoreboard_footer"></div>
+</div> 
+
+</body>
+</html>

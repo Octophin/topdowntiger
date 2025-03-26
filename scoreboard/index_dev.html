@@ -1,0 +1,39 @@
+<!doctype HTML>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:800italic,400italic">
+<style>
+body { color:white; font-family:arial;}
+h1 { font-family: 'Alegreya Sans'; font-size:42px; margin: 15px 0 10px; text-shadow: 1px 1px 1px #000000; line-height:38px; }
+h2 { font-family: 'Alegreya Sans'; font-size:22px; text-shadow:1px 1px 1px #000000; border-bottom:2px dotted #FFFFFF }
+table { width:215px; font-family: 'Alegreya Sans';}
+td { width:100px; border-style:solid; border-width:2px; overflow:hidden; background-color:rgba(255,140,0,0.7)}
+body { background:#000000 url("../media/splash/tree.jpg") top no-repeat; }
+.scoreboard_wrapper { background:url("panel_repeat.png") repeat-y; padding: 0 45px; width: 221px; margin-left:auto; margin-right:auto; margin-top:10px; }
+#scoreboard_header { background:url("scoreboard_top_panel.png") no-repeat; height:25px; margin-left:-46px; width:328px; }
+#scoreboard_footer { background:url("scoreboard_bottom_panel.png") no-repeat; height:25px; margin-left:-46px; width:320px; margin-top: 23px; }
+</style>
+</head>
+<body>
+
+<div class="scoreboard_wrapper">
+<div id="scoreboard_header"></div>
+
+<h1>Tiger Territory Scoreboard</h1>
+
+
+<h2>Desktop scores</h2>
+<table id="desktop">
+<tr><th>Ranking</th><th>Name</th><th>Score</th></tr>
+</table>
+<h2>Mobile scores</h2>
+<table id="mobile">
+<tr><th>Ranking</th><th>Name</th><th>Score</th></tr>
+</table>
+
+<div id="scoreboard_footer"></div>
+</div> 
+
+</body>
+</html>
